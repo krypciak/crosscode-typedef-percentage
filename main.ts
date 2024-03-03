@@ -242,9 +242,14 @@ function compare(prim: Namespace, seco: Namespace) {
     const commonFields = intersect(primFields, secoFields)
     const commonFunctions = intersect(primFunctions, secoFunctions)
 
-    console.log(`classes: total: ${primClasses.length}, typedefs: ${commonClasses.length}, ${((commonClasses.length / primClasses.length) * 100).toFixed(2)}%`)
-    console.log(`fields: total: ${primFields.length}, typedefs: ${commonFields.length}, ${((commonFields.length / primFields.length) * 100).toFixed(2)}%`)
-    console.log(`functions: total: ${primFunctions.length}, typedefs: ${commonFunctions.length}, ${((commonFunctions.length / primFunctions.length) * 100).toFixed(2)}%`)
+    const precClasses = (commonClasses.length / primClasses.length) * 100
+    const precFields = (commonFields.length / primFields.length) * 100
+    const precFunctions = (commonFunctions.length / primFunctions.length) * 100
+
+    console.log(`classes: total: ${primClasses.length}, typedefs: ${commonClasses.length}, ${precClasses.toFixed(2)}%`)
+    console.log(`fields: total: ${primFields.length}, typedefs: ${commonFields.length}, ${precFields.toFixed(2)}%`)
+    console.log(`functions: total: ${primFunctions.length}, typedefs: ${commonFunctions.length}, ${precFunctions.toFixed(2)}%`)
+    console.log(`total (avg % of classes + fields + functions): ${((precClasses + precFields + precFunctions) / 3).toFixed(2)}%`)
 }
 
 compare(gen_root, mod_root)
