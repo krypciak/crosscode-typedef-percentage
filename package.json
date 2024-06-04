@@ -8,8 +8,14 @@
   "author": "krypek",
   "dependencies": {
     "@types/node": "^20.11.7",
+    "anychart": "^8.12.1",
     "bun": "^1.0.25",
+    "chartjs-node": "^1.7.1",
     "prettier": "^3.2.4",
     "typescript": "^5.3.3"
-  }
+  },
+  "devDependencies": {
+    "@types/bun": "^1.1.3"
+  },
+  "type": "module"
 }
