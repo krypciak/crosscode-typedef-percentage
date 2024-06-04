@@ -11,9 +11,11 @@ functions: total: 8580, typedefs: 1489, 17.35%
 total (avg % of classes + fields + functions): 20.77%
 ```
 
-## Generated graph
+## Typedef coverage over time
 
 ![image](https://github.com/krypciak/crosscode-typedef-percentage/assets/115574014/0aca0404-6f5b-4653-8b62-6ce0bd1ad956)
+
+### Genereting the graph
 
 ```bash
 cd graph
