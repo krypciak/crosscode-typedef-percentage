@@ -1,7 +1,7 @@
 import { $ } from 'bun'
 import { run } from '../dataGetter.js'
 
-const REPO_PATH = '/home/krypek/Programming/crosscode/ultimate-crosscode-typedefs'
+const REPO_PATH = '/home/krypek/Programming/repos/ultimate-crosscode-typedefs'
 const genModules = `../output.d.ts`
 const genModulesStr = await $`cat ${genModules}`.text()
 
@@ -51,7 +51,7 @@ async function generateDataPoints() {
     $.cwd('../..')
     await $`rm -rf ./temp`
 
-    Bun.file('dataPoints.json').writer().write(JSON.stringify(dataPoints))
+    await Bun.write('dataPoints.json', JSON.stringify(dataPoints))
     return dataPoints
 }
 

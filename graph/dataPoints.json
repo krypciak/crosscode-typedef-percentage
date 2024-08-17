@@ -1,6 +1,126 @@
 [
     {
         "author": "krypek",
+        "sha": "62e0891454fa1f01fa883c5bbccda052343a71a9",
+        "typedefData": { "classes": 28.282275711159738, "fields": 18.925878241677395, "functions": 19.13752913752914 },
+        "date": 1723895869
+    },
+    {
+        "author": "krypek",
+        "sha": "b8a1871936c2e91232147c1367c117aba85dc264",
+        "typedefData": { "classes": 28.282275711159738, "fields": 18.925878241677395, "functions": 19.114219114219114 },
+        "date": 1723895794
+    },
+    {
+        "author": "krypek",
+        "sha": "6493b25c83d0526652e9b49c7b6e24a1c6f7919d",
+        "typedefData": { "classes": 28.282275711159738, "fields": 18.91668199374655, "functions": 19.102564102564102 },
+        "date": 1723895693
+    },
+    {
+        "author": "krypek",
+        "sha": "973c6d8a2192ecbb01917ac270737549262112ec",
+        "typedefData": { "classes": 28.118161925601747, "fields": 18.070627184108883, "functions": 17.96037296037296 },
+        "date": 1723834326
+    },
+    {
+        "author": "krypek",
+        "sha": "fe143fa2fe3761590c0e8f70c7d765d9d5d07518",
+        "typedefData": { "classes": 27.735229759299777, "fields": 17.39010483722641, "functions": 17.482517482517483 },
+        "date": 1723453565
+    },
+    {
+        "author": "krypek",
+        "sha": "1022fd9e808860eb6f38fb840b1660c38a64dc36",
+        "typedefData": { "classes": 27.735229759299777, "fields": 17.38090858929557, "functions": 17.482517482517483 },
+        "date": 1723449755
+    },
+    {
+        "author": "krypek",
+        "sha": "de65b30de8d80ef648fa36933f1e19583a5b9c01",
+        "typedefData": { "classes": 27.735229759299777, "fields": 17.38090858929557, "functions": 17.47086247086247 },
+        "date": 1723371712
+    },
+    {
+        "author": "krypek",
+        "sha": "79d92a85702d232fcccf4938b0440063cc671367",
+        "typedefData": { "classes": 27.735229759299777, "fields": 17.371712341364724, "functions": 17.47086247086247 },
+        "date": 1723238138
+    },
+    {
+        "author": "krypek",
+        "sha": "342d4bd48b7141890b877b1102f2af758aab7093",
+        "typedefData": { "classes": 27.680525164113785, "fields": 17.353319845503034, "functions": 17.45920745920746 },
+        "date": 1723237900
+    },
+    {
+        "author": "krypek",
+        "sha": "36ce0c9eb08c22e7e72f2f7677f3be57d66fdffd",
+        "typedefData": { "classes": 27.680525164113785, "fields": 17.353319845503034, "functions": 17.424242424242426 },
+        "date": 1723237656
+    },
+    {
+        "author": "krypek",
+        "sha": "cd4ed2cecae872b395af1818cc990f2186e9368c",
+        "typedefData": { "classes": 27.680525164113785, "fields": 17.353319845503034, "functions": 17.424242424242426 },
+        "date": 1723237270
+    },
+    {
+        "author": "krypek",
+        "sha": "1d2e40f8840f52ea0aca1c6a31cb75df9d1ee884",
+        "typedefData": { "classes": 27.680525164113785, "fields": 17.353319845503034, "functions": 17.424242424242426 },
+        "date": 1723236196
+    },
+    {
+        "author": "krypek",
+        "sha": "ca3cffa1683ad818e0cfcecda9a103cecfc2227e",
+        "typedefData": { "classes": 27.680525164113785, "fields": 17.353319845503034, "functions": 17.424242424242426 },
+        "date": 1723235874
+    },
+    {
+        "author": "krypek",
+        "sha": "6384ccb167d8a712f129f69403a9061a9d43b6f3",
+        "typedefData": { "classes": 27.680525164113785, "fields": 17.353319845503034, "functions": 17.424242424242426 },
+        "date": 1722967498
+    },
+    {
+        "author": "krypek",
+        "sha": "b224edb12663383c3bacaa0cb3cdccb72968734d",
+        "typedefData": { "classes": 27.680525164113785, "fields": 17.353319845503034, "functions": 17.424242424242426 },
+        "date": 1722954363
+    },
+    {
+        "author": "krypek",
+        "sha": "6b0fcf60588f45e8ac92b959c070d497469b4292",
+        "typedefData": { "classes": 27.680525164113785, "fields": 17.353319845503034, "functions": 17.424242424242426 },
+        "date": 1722937110
+    },
+    {
+        "author": "krypek",
+        "sha": "939912499f0768967e5a596315c6a29b3caa2adb",
+        "typedefData": { "classes": 27.680525164113785, "fields": 17.353319845503034, "functions": 17.4009324009324 },
+        "date": 1722782171
+    },
+    {
+        "author": "krypek",
+        "sha": "563fa8be6cf5639b1fe1a02590821fcba310b8a7",
+        "typedefData": { "classes": 27.62582056892779, "fields": 17.325731101710502, "functions": 17.365967365967368 },
+        "date": 1721556635
+    },
+    {
+        "author": "krypek",
+        "sha": "9b4b39058fe54497e33ab62fb656cd859cdf8048",
+        "typedefData": { "classes": 27.62582056892779, "fields": 17.316534853779658, "functions": 17.365967365967368 },
+        "date": 1717935341
+    },
+    {
+        "author": "krypek",
+        "sha": "086e8b53d842d26c5ea5fddd40b856ca4aaebc32",
+        "typedefData": { "classes": 27.62582056892779, "fields": 17.316534853779658, "functions": 17.354312354312356 },
+        "date": 1717862452
+    },
+    {
+        "author": "krypek",
         "sha": "cd3d249eef2b4f36e8f66e51c15259b40c001cbc",
         "typedefData": { "classes": 27.62582056892779, "fields": 17.316534853779658, "functions": 17.354312354312356 },
         "date": 1717435322
