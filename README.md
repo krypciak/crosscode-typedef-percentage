@@ -13,7 +13,9 @@ total (avg % of classes + fields + functions): 20.77%
 
 ## Typedef coverage over time
 
-![image](https://github.com/krypciak/crosscode-typedef-percentage/assets/115574014/0aca0404-6f5b-4653-8b62-6ce0bd1ad956)
+![image](https://github.com/user-attachments/assets/44965ed1-3a41-47a3-9659-88c0144dc5a9)
+
+
 
 ### Genereting the graph
 
