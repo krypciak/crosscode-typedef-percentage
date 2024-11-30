@@ -13,8 +13,7 @@ total (avg % of classes + fields + functions): 25.06%
 
 ## Typedef coverage over time
 
-![image](https://github.com/user-attachments/assets/44965ed1-3a41-47a3-9659-88c0144dc5a9)
-
+![image](https://github.com/user-attachments/assets/cdb52d4e-2fc5-443b-906e-bbca2a3c7ba2)
 
 ### Genereting the graph
 
