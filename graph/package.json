@@ -7,11 +7,11 @@
     "build": "parcel build index.html"
   },
   "devDependencies": {
-    "parcel": "^2.6.2"
+    "parcel": "^2.13.2"
   },
   "dependencies": {
-    "@cubejs-client/core": "^0.31.0",
-    "chart.js": "^4.0.0",
+    "@cubejs-client/core": "^0.31.63",
+    "chart.js": "^4.4.6",
     "chartjs-adapter-date-fns": "^3.0.0",
     "date-fns": "^3.6.0"
   },
