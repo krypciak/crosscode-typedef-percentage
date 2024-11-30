@@ -20,6 +20,7 @@ type Entry = (typeof dataPointsArr)[any]
         dataPoints.push(e)
     }
 
+    console.log(dataPoints.map(e => e.date))
     const canvas = document.getElementById('canvas') as HTMLCanvasElement
     new Chart(canvas, {
         type: 'line',
@@ -48,13 +49,18 @@ type Entry = (typeof dataPointsArr)[any]
             aspectRatio: 3,
             scales: {
                 x: {
-                    type: 'timeseries',
+                    type: 'time',
                 },
                 y: {
                     ticks: {
                         callback: value => value + '%',
                     },
                     // suggestedMax: 100
+                },
+            },
+            elements: {
+                line: {
+                    spanGaps: true,
                 },
             },
         },
