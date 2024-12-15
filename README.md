@@ -3,17 +3,17 @@ Generate the percentage the [ultimate-crosscode-typedefs](https://github.com/kry
 
 To use replace the `repoPath` argument in `main.ts` for your ultimate-crosscode-typedefs repo path  
 
-Results as for [this commit (Nov 30 2024) ()](https://github.com/krypciak/ultimate-crosscode-typedefs/commit/781ea0f2c25bd2249db12b7509dcb77cfd032827)
+Results as for [this commit (Dec 15 2024)](https://github.com/krypciak/ultimate-crosscode-typedefs/commit/f0e7c547c1c117bb3ccdbdd076c0638fd02fed81)
 ```js
-classes: total: 1828, typedefs: 556, 30.42%
-fields: total: 10874, typedefs: 2421, 22.26%
-functions: total: 8580, typedefs: 1931, 22.51%
-total (avg % of classes + fields + functions): 25.06%
+classes: total: 1828, typedefs: 567, 31.02%
+fields: total: 10874, typedefs: 2532, 23.28%
+functions: total: 8580, typedefs: 2059, 24.00%
+total (avg % of classes + fields + functions): 26.10%
 ```
 
 ## Typedef coverage over time
 
-![image](https://github.com/user-attachments/assets/cdb52d4e-2fc5-443b-906e-bbca2a3c7ba2)
+![image](https://github.com/user-attachments/assets/b391ba89-d87a-4bcf-a330-2dd494e028f7)
 
 ### Genereting the graph
 
