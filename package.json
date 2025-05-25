@@ -1,21 +1,21 @@
 {
-  "name": "typedef-precentage",
+  "name": "crosscode-typedefs",
   "version": "1.0.0",
-  "description": "",
   "scripts": {
-    "start": "npx bun main.ts"
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
   },
-  "author": "krypek",
   "dependencies": {
-    "@types/node": "^20.11.7",
-    "anychart": "^8.12.1",
-    "bun": "^1.0.25",
-    "chartjs-node": "^1.7.1",
-    "prettier": "^3.2.4",
-    "typescript": "^5.3.3"
+    "@cubejs-client/core": "^0.31.63",
+    "bun": "^1.2.14",
+    "chart.js": "^4.4.6",
+    "chartjs-adapter-date-fns": "^3.0.0",
+    "crosscode-typedef-inserter": "github:krypciak/crosscode-typedef-inserter",
+    "date-fns": "^3.6.0",
+    "parcel": "^2.13.2"
   },
+  "type": "module",
   "devDependencies": {
-    "@types/bun": "^1.1.3"
-  },
-  "type": "module"
+    "@types/bun": "^1.2.14"
+  }
 }

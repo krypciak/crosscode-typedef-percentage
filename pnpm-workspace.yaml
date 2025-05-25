@@ -1,0 +1,7 @@
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - '@swc/core'
+  - bun
+  - core-js
+  - lmdb
+  - msgpackr-extract

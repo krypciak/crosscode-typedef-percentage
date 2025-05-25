@@ -1,18 +1,30 @@
 {
-    "exclude": [
-        "temp"
+  "exclude": [
+    "temp",
+  ],
+  "compilerOptions": {
+    // Enable latest features
+    "lib": [
+      "ESNext",
+      "DOM"
     ],
-    "compilerOptions": {
-        "target": "ESNext" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
-        "module": "NodeNext" /* Specify what module code is generated. */,
-        "rootDir": "./" /* Specify the root folder within your source files. */,
-        "moduleResolution": "NodeNext" /* Specify how TypeScript looks up a file from a given module specifier. */,
-        "allowJs": true /* Allow JavaScript files to be a part of your program. Use the 'checkJS' option to get errors from these files. */,
-        "noEmit": true /* Disable emitting files from a compilation. */,
-        "isolatedModules": true /* Ensure that each file can be safely transpiled without relying on other imports. */,
-        "esModuleInterop": true /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */,
-        "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
-        "strict": true /* Enable all strict type-checking options. */,
-        "resolveJsonModule": true
-    }
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleDetection": "force",
+    "rootDir": "./src",
+    "allowJs": true,
+    // Bundler mode
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "noEmit": true,
+    // Best practices
+    "strict": true,
+    "skipLibCheck": true,
+    "noFallthroughCasesInSwitch": true,
+    // Some stricter flags (disabled by default)
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noPropertyAccessFromIndexSignature": false
+  }
 }
