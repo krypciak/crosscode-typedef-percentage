@@ -48,7 +48,14 @@ async function startThreads(threadCount: number) {
     const promises: Promise<DataPoint[]>[] = []
     for (let index = 0; index < threadCount; index++) {
         const worker = new Worker('src/worker.ts')
-        worker.onmessage
+
+        promises.push(
+            new Promise<DataPoint[]>(resolve => {
+                worker.onmessage = event => {
+                    resolve(event.data)
+                }
+            })
+        )
 
         worker.postMessage({
             index,

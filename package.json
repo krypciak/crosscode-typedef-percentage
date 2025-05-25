@@ -2,6 +2,7 @@
   "name": "crosscode-typedefs",
   "version": "1.0.0",
   "scripts": {
+    "generateDataPoints": "bun src/generate-data-points.ts",
     "dev": "parcel index.html",
     "build": "parcel build index.html"
   },
