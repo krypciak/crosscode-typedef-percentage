@@ -3,25 +3,23 @@ Generate the percentage the [ultimate-crosscode-typedefs](https://github.com/kry
 
 To use replace the `repoPath` argument in `main.ts` for your ultimate-crosscode-typedefs repo path  
 
-Results as for [this commit (Dec 15 2024)](https://github.com/krypciak/ultimate-crosscode-typedefs/commit/f0e7c547c1c117bb3ccdbdd076c0638fd02fed81)
+Results as for [this commit (May 22 2025)](https://github.com/krypciak/ultimate-crosscode-typedefs/commit/a06a27682e34d07a7ea1a965f14f4138dedccbc7)
 ```js
-classes: total: 1828, typedefs: 567, 31.02%
-fields: total: 10874, typedefs: 2532, 23.28%
-functions: total: 8580, typedefs: 2059, 24.00%
-total (avg % of classes + fields + functions): 26.10%
+classes: total: 1789, typedefs: 1334, 74.57%
+functions: total: 10595, typedefs: 6297, 59.43%
+fields: total: 8631, typedefs: 5275, 61.12%
+total (avg % of classes + fields + functions): 65.04%
 ```
 
 ## Typedef coverage over time
 
-![image](https://github.com/user-attachments/assets/b391ba89-d87a-4bcf-a330-2dd494e028f7)
+![image](https://github.com/user-attachments/assets/7733cad1-d20c-4e65-b3c1-6df32a5a3476)
 
 ### Genereting the graph
 
 ```bash
-cd graph
-# grap latest data, remember to change the repo path in this file
-bun generateDataPoints.ts
+# grab latest data, remember to change the repo path in this file
+npm run generateDataPoints
 # start parcel web server
 npm run dev
-# now visit the page and grap a screenshot
 ```
