@@ -16,6 +16,7 @@ self.onmessage = async (event: MessageEvent) => {
 
 async function generateDataPoints(index: number, repoPath: string, gameCompiledPath: string, commits: CommitInfo[]) {
     const dataPoints: DataPoint[] = []
+    await $`rm -rf ./temp/repo${index}`
     await $`cp -rf "${repoPath}" ./temp/repo${index}`
 
     const typedefRepoPath = `./temp/repo${index}`

@@ -29,6 +29,7 @@ function chunkArray<T>(array: T[], numberOfChunks: number): T[][] {
 
 async function startThreads(threadCount: number) {
     await $`mkdir -p ./temp`
+    await $`rm -rf ./temp/repo`
     await $`cp -rf "${repoPath}" ./temp/repo`
 
     $.cwd('./temp/repo')
@@ -64,9 +65,6 @@ async function startThreads(threadCount: number) {
             commits: commitChunks[index],
         })
     }
-
-    // $.cwd('.')
-    // await $`rm -rf ./temp`
 
     const allChunks = (await Promise.all(promises)).flatMap(a => a)
     console.log('allChunks:')
