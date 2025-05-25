@@ -5,11 +5,15 @@ import dataPointsArrRaw from './dataPoints.json'
 const dataPointsArr: DataPoint[] = dataPointsArrRaw
 
 ;(async function () {
-    dataPointsArr.reverse()
+    dataPointsArr.sort((a, b) => a.date - b.date)
+
+    const minDate = 0 // dataPointsArr[Math.floor(dataPointsArr.length)].date
 
     const dataPoints: DataPoint[] = []
     for (let i = 0; i < dataPointsArr.length; i++) {
         const e = dataPointsArr[i]
+        if (e.date < minDate) continue
+
         const le = dataPoints[dataPoints.length - 1]
         if (!le) {
             dataPoints.push(e)

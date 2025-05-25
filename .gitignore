@@ -3,3 +3,4 @@ temp
 .parcel-cache
 dist
 dataPoints.json
+typedefs.json

@@ -10,7 +10,6 @@ export interface CommitInfo {
     sha: string
     date: number
     author: string
-    title: string
 }
 
 export interface DataPoint extends CommitInfo {
@@ -34,14 +33,14 @@ async function startThreads(threadCount: number) {
     await $`cp -rf "${repoPath}" ./temp/repo`
 
     $.cwd('./temp/repo')
-    const commitData: string = await $`git log --pretty=format:"%H@@%ad@@%an@@%s" --date=unix --no-merges`.text()
+    const commitData: string = await $`git log --pretty=format:"%H@@%ad@@%an" --date=unix --no-merges`.text()
     $.cwd('.')
     console.log('cwd:', await $`pwd`.text())
 
     const allCommits: CommitInfo[] = commitData.split('\n').map(line => {
-        const [sha, dateStr, author, title] = line.split('@@')
+        const [sha, dateStr, author] = line.split('@@')
         const date = Number(dateStr)
-        return { sha, date, author, title }
+        return { sha, date, author }
     })
     const commitChunks = chunkArray(allCommits, threadCount)
 
