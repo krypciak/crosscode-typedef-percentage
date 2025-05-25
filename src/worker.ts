@@ -3,47 +3,53 @@ import type { CommitInfo, DataPoint } from './generate-data-points'
 import { $ } from 'bun'
 import { getModulesInfo } from 'crosscode-typedef-inserter/src/modules-info'
 
-declare var self: Worker
+const { index, repoPath, gameCompiledPath, commits } = JSON.parse(Bun.argv[2])
+const dataPoints = await generateDataPoints(index, repoPath, gameCompiledPath, commits)
 
-self.onmessage = async (event: MessageEvent) => {
-    const { index, repoPath, gameCompiledPath, commits } = event.data
-
-    const dataPoints = await generateDataPoints(index, repoPath, gameCompiledPath, commits)
-
-    postMessage(dataPoints)
-    self.terminate()
-}
+console.log(JSON.stringify(dataPoints))
 
 async function generateDataPoints(index: number, repoPath: string, gameCompiledPath: string, commits: CommitInfo[]) {
     const dataPoints: DataPoint[] = []
     await $`rm -rf ./temp/repo${index}`
     await $`cp -rf "${repoPath}" ./temp/repo${index}`
 
-    const typedefRepoPath = `./temp/repo${index}`
-    $.cwd(typedefRepoPath)
-    console.log('worker:', await $`pwd`.text())
+    const typedefRepoPath = `/home/krypek/home/Programming/repos/crosscode-typedef-percentage/temp/repo${index}`
 
     const gameCompiledInfo = await createGameCompiledProgram(gameCompiledPath)
-    console.log('program created')
 
-    for (const { sha, date, author } of commits) {
-        // await $`git reset --hard ${sha}`.quiet()
+    console.warn('worker:', await $`pwd`.text())
 
-        const typedefModulesPath = `${typedefRepoPath}/modules`
-        const { typedefModuleRecord, classPathToModule } = await getModulesInfo(typedefModulesPath)
-        console.log('modules got')
+    try {
+        for (let i = 0; i < commits.length; i++) {
+            const { sha, date, author } = commits[i]
 
-        const { typedStats: typedefData } = await getTypeInjectsAndTypedStats(classPathToModule, typedefModuleRecord, typedefModulesPath, gameCompiledInfo, false)
+            $.cwd(typedefRepoPath)
+            await $`git reset --hard ${sha}`.quiet()
 
-        dataPoints.push({
-            author,
-            sha,
-            typedefData,
-            date,
-        })
-        console.log(`${sha} done, ${typedefData.fields.typed}`)
-        break
-        // if (typedefData.fields == 0) break
+            const backup = console.log
+            console.log = () => {}
+            try {
+                const typedefModulesPath = `${typedefRepoPath}/modules`
+                const { typedefModuleRecord, classPathToModule } = await getModulesInfo(typedefModulesPath)
+
+                const { typedStats: typedefData } = await getTypeInjectsAndTypedStats(classPathToModule, typedefModuleRecord, typedefModulesPath, gameCompiledInfo, false)
+
+                dataPoints.push({
+                    author,
+                    sha,
+                    typedefData,
+                    date,
+                })
+                console.warn(`worker ${index}: ${sha} done, ${typedefData.fields.typed} ${i}/${commits.length}`)
+            } catch (e) {
+                console.error(`worker ${index}: ${sha} failed to generate`, e)
+            } finally {
+                console.log = backup
+            }
+        }
+    } catch (e) {
+        console.error(index)
+        throw e
     }
     return dataPoints
 }

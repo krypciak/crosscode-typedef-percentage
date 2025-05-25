@@ -1,12 +1,13 @@
 import Chart from 'chart.js/auto'
-import dataPointsArr from './dataPoints.json'
 import 'chartjs-adapter-date-fns'
+import type { DataPoint } from './generate-data-points'
+import dataPointsArrRaw from './dataPoints.json'
+const dataPointsArr: DataPoint[] = dataPointsArrRaw
 
-type Entry = (typeof dataPointsArr)[any]
 ;(async function () {
     dataPointsArr.reverse()
 
-    const dataPoints: Entry[] = []
+    const dataPoints: DataPoint[] = []
     for (let i = 0; i < dataPointsArr.length; i++) {
         const e = dataPointsArr[i]
         const le = dataPoints[dataPoints.length - 1]
@@ -15,13 +16,17 @@ type Entry = (typeof dataPointsArr)[any]
             continue
         }
 
-        if (e.typedefData.classes < le.typedefData.classes) continue
+        if (e.typedefData.classes.typed < le.typedefData.classes.typed) continue
 
         dataPoints.push(e)
     }
 
     console.log(dataPoints.map(e => e.date))
     const canvas = document.getElementById('canvas') as HTMLCanvasElement
+
+    function percentage(data: { typed: number; untyped: number }): number {
+        return 100 * (data.typed / (data.typed + data.untyped))
+    }
     new Chart(canvas, {
         type: 'line',
 
@@ -30,17 +35,17 @@ type Entry = (typeof dataPointsArr)[any]
             datasets: [
                 {
                     label: 'Classes',
-                    data: dataPoints.map(e => e.typedefData.classes),
+                    data: dataPoints.map(e => percentage(e.typedefData.classes)),
                     backgroundColor: 'blue',
                 },
                 {
                     label: 'Functions',
-                    data: dataPoints.map(e => e.typedefData.functions),
+                    data: dataPoints.map(e => percentage(e.typedefData.functions)),
                     backgroundColor: 'limegreen',
                 },
                 {
                     label: 'Fields',
-                    data: dataPoints.map(e => e.typedefData.fields),
+                    data: dataPoints.map(e => percentage(e.typedefData.fields)),
                     backgroundColor: 'purple',
                 },
             ],

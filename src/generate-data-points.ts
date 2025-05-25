@@ -10,6 +10,7 @@ export interface CommitInfo {
     sha: string
     date: number
     author: string
+    title: string
 }
 
 export interface DataPoint extends CommitInfo {
@@ -33,44 +34,37 @@ async function startThreads(threadCount: number) {
     await $`cp -rf "${repoPath}" ./temp/repo`
 
     $.cwd('./temp/repo')
-    const commitData: string = await $`git log --pretty=format:"%H %cd %an" --date=unix --no-merges`.text()
+    const commitData: string = await $`git log --pretty=format:"%H@@%ad@@%an@@%s" --date=unix --no-merges`.text()
+    $.cwd('.')
+    console.log('cwd:', await $`pwd`.text())
 
     const allCommits: CommitInfo[] = commitData.split('\n').map(line => {
-        const split = line.split(' ')
-        const sha = split[0]
-        split.shift()
-        const date = Number(split[0])
-        split.shift()
-        const author = split.join(' ')
-        return { sha, date, author }
+        const [sha, dateStr, author, title] = line.split('@@')
+        const date = Number(dateStr)
+        return { sha, date, author, title }
     })
     const commitChunks = chunkArray(allCommits, threadCount)
 
-    const promises: Promise<DataPoint[]>[] = []
+    const promises: Promise<string>[] = []
     for (let index = 0; index < threadCount; index++) {
-        const worker = new Worker('src/worker.ts')
-
-        promises.push(
-            new Promise<DataPoint[]>(resolve => {
-                worker.onmessage = event => {
-                    resolve(event.data)
-                }
-            })
-        )
-
-        worker.postMessage({
+        const data = {
             index,
             repoPath,
             gameCompiledPath,
             commits: commitChunks[index],
-        })
+        }
+        const proc = Bun.spawn(['bun', 'run', 'src/worker.ts', JSON.stringify(data)])
+
+        promises.push(new Response(proc.stdout).text())
     }
 
-    const allChunks = (await Promise.all(promises)).flatMap(a => a)
+    const chunksRaw = await Promise.all(promises)
+    const chunks = chunksRaw.map(str => JSON.parse(str))
+    const allChunks = chunks.flatMap(a => a)
     console.log('allChunks:')
-    console.log(allChunks)
+    console.log(allChunks.length)
 
-    // await Bun.write('dataPoints.json', JSON.stringify(dataPoints))
+    await Bun.write('src/dataPoints.json', JSON.stringify(allChunks))
 }
 
-await startThreads(1)
+await startThreads(10)

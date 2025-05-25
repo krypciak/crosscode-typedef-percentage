@@ -5,3 +5,5 @@ onlyBuiltDependencies:
   - core-js
   - lmdb
   - msgpackr-extract
+overrides:
+  crosscode-typedef-inserter: link:../../../../.local/share/pnpm/global/5/node_modules/crosscode-typedef-inserter

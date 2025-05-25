@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "generateDataPoints": "bun src/generate-data-points.ts",
-    "dev": "parcel index.html",
-    "build": "parcel build index.html"
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html"
   },
   "dependencies": {
     "@cubejs-client/core": "^0.31.63",

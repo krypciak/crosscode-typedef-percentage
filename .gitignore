@@ -2,3 +2,4 @@ node_modules
 temp
 .parcel-cache
 dist
+dataPoints.json
