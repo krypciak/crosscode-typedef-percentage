@@ -15,7 +15,8 @@ total          total: 21152  typedefs: 14342  67.80%
 
 ## Typedef coverage over time
 
-![image](https://github.com/user-attachments/assets/7733cad1-d20c-4e65-b3c1-6df32a5a3476)
+<img width="1279" height="434" alt="image" src="https://github.com/user-attachments/assets/a91bb451-1633-43bd-a651-f63d32f22816" />
+
 
 ### Genereting the graph
 
