@@ -1,10 +1,17 @@
 import { $ } from 'bun'
-import type { getTypeInjectsAndTypedStats } from 'crosscode-typedef-inserter/src/type-injects'
+// import type { getTypeInjectsAndTypedStats } from 'crosscode-typedef-inserter/src/type-injects'
 
 const repoPath = '/home/krypek/Programming/repos/ultimate-crosscode-typedefs'
 const gameCompiledPath = '/home/krypek/Programming/repos/crosscode-typedef-inserter/game-compiled/game.compiled.lebab.js'
 
-export type TypedStats = Awaited<ReturnType<typeof getTypeInjectsAndTypedStats>>['typedStats']
+// Awaited<ReturnType<typeof getTypeInjectsAndTypedStats>>['typedStats']
+export type TypedStats = Record<
+    'fields' | 'methods' | 'functions' | 'localFunctions' | 'classes',
+    {
+        typed: number
+        untyped: number
+    }
+>
 
 export interface CommitInfo {
     sha: string

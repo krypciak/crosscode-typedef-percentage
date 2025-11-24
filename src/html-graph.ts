@@ -52,6 +52,11 @@ const dataPointsArr: DataPoint[] = dataPointsArrRaw
                     data: dataPoints.map(e => percentage(e.typedefData.fields)),
                     backgroundColor: 'purple',
                 },
+                {
+                    label: 'Methods',
+                    data: dataPoints.map(e => percentage(e.typedefData.methods)),
+                    backgroundColor: 'red',
+                },
             ],
         },
         options: {

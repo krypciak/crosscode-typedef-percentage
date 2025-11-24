@@ -1,5 +1,5 @@
 import { createGameCompiledProgram, getTypeInjectsAndTypedStats } from 'crosscode-typedef-inserter/src/type-injects'
-import type { CommitInfo, DataPoint } from './generate-data-points'
+import type { CommitInfo, DataPoint, TypedStats } from './generate-data-points'
 import { $ } from 'bun'
 import { getModulesInfo } from 'crosscode-typedef-inserter/src/modules-info'
 
@@ -32,7 +32,16 @@ async function generateDataPoints(index: number, repoPath: string, gameCompiledP
                 const typedefModulesPath = `${typedefRepoPath}/modules`
                 const { typedefModuleRecord, classPathToModule } = await getModulesInfo(typedefModulesPath)
 
-                const { typedStats: typedefData } = await getTypeInjectsAndTypedStats(classPathToModule, typedefModuleRecord, typedefModulesPath, gameCompiledInfo, false)
+                const { typedStats: typedefDataRaw } = await getTypeInjectsAndTypedStats(
+                    classPathToModule,
+                    typedefModuleRecord,
+                    typedefModulesPath,
+                    gameCompiledInfo,
+                    false
+                )
+                const typedefData = Object.fromEntries(
+                    Object.entries(typedefDataRaw).map(([k, v]) => [k, { typed: v.typed.length, untyped: v.untyped.length }])
+                ) as TypedStats
 
                 dataPoints.push({
                     author,

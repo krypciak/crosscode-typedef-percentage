@@ -11,12 +11,12 @@
     "bun": "^1.2.14",
     "chart.js": "^4.4.6",
     "chartjs-adapter-date-fns": "^3.0.0",
-    "crosscode-typedef-inserter": "github:krypciak/crosscode-typedef-inserter",
     "date-fns": "^3.6.0",
     "parcel": "^2.13.2"
   },
   "type": "module",
   "devDependencies": {
-    "@types/bun": "^1.2.14"
+    "@types/bun": "^1.2.14",
+    "crosscode-typedef-inserter": "github:krypciak/crosscode-typedef-inserter"
   }
 }
