@@ -3,12 +3,14 @@ Generate the percentage the [ultimate-crosscode-typedefs](https://github.com/kry
 
 To use replace the `repoPath` and `gameCompiledPath` argument in `src/generate-data-points.ts` for your ultimate-crosscode-typedefs repo and game code paths  
 
-Results as for [this commit (May 22 2025)](https://github.com/krypciak/ultimate-crosscode-typedefs/commit/a06a27682e34d07a7ea1a965f14f4138dedccbc7)
+Results as for [this commit (November 24 2025)](https://github.com/krypciak/ultimate-crosscode-typedefs/commit/2f12a8541ed83cc2ef6d4d30aaa1eb4bf4663080)
 ```js
-classes: total: 1789, typedefs: 1334, 74.57%
-functions: total: 10595, typedefs: 6297, 59.43%
-fields: total: 8631, typedefs: 5275, 61.12%
-total (avg % of classes + fields + functions): 65.04%
+classes        total:  1793  typedefs:  1379  76.91%
+methods        total: 10460  typedefs:  7121  68.08%
+functions      total:   143  typedefs:    36  25.17%
+localFunctions total:   125  typedefs:     7  5.60%
+fields         total:  8631  typedefs:  5799  67.19%
+total          total: 21152  typedefs: 14342  67.80%
 ```
 
 ## Typedef coverage over time
